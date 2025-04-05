@@ -7,7 +7,7 @@
   "functions": {
     "api/run.js": {
       "runtime": "nodejs18.x",
-      "memory": 2048,
+      "memory": 1024,
       "maxDuration": 10
     }
   }
