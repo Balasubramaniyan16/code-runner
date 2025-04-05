@@ -1,19 +1,29 @@
 document.getElementById('run').addEventListener('click', async () => {
-  const code = document.getElementById('code').value;
+  const code = document.getElementById('code').value.trim();
   const language = document.getElementById('language').value;
-  const outputDiv = document.getElementById('output');
+  const outputEl = document.getElementById('output');
   
-  outputDiv.textContent = 'Executing...';
+  if (!code) {
+    outputEl.textContent = 'Error: Please enter some code';
+    return;
+  }
+
+  outputEl.textContent = 'Executing...';
   
   try {
     const response = await fetch('/run', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
       body: JSON.stringify({ code, language })
     });
-    const result = await response.json();
-    outputDiv.textContent = result.output || result.error;
+    
+    const data = await response.json();
+    outputEl.textContent = data.output || data.error;
+    
   } catch (err) {
-    outputDiv.textContent = `Error: ${err.message}`;
+    outputEl.textContent = `Network Error: ${err.message}`;
   }
 });
