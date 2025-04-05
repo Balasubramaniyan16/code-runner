@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "public": true,  // Changed from "public" folder name to boolean
+  "public": true, 
   "rewrites": [
     { "source": "/run", "destination": "/api/run" }
   ],
