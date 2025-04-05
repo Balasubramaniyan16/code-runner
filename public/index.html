@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Code Runner</title>
+  <title>Secure Code Runner</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="editor">
+  <div class="container">
+    <h1>Code Runner</h1>
     <select id="language">
-      <option value="python">Python</option>
       <option value="javascript">JavaScript</option>
+      <option value="python">Python</option>
     </select>
-    <textarea id="code">console.log("Hello World")</textarea>
-    <button id="run">Run Code</button>
-    <div id="output"></div>
+    <textarea id="code" placeholder="Enter code here...">console.log('Hello World');</textarea>
+    <button id="run">▶ Run Code</button>
+    <div class="output">
+      <h3>Output:</h3>
+      <pre id="output"></pre>
+    </div>
   </div>
   <script src="script.js"></script>
 </body>
