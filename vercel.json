@@ -1,14 +1,24 @@
 {
   "version": 2,
-  "public": true, 
-  "rewrites": [
-    { "source": "/run", "destination": "/api/run" }
-  ],
-  "functions": {
-    "api/run.js": {
-      "runtime": "nodejs18.x",
-      "memory": 1024,
-      "maxDuration": 10
+  "builds": [
+    {
+      "src": "api/run.js",
+      "use": "@vercel/node@4.2.4"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static@1.3.4"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/run",
+      "dest": "/api/run",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/public/$1"
+    }
+  ]
 }
