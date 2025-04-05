@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "public": "public",
+  "rewrites": [
+    { "source": "/run", "destination": "/api/run" }
+  ],
+  "functions": {
+    "api/run.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  }
+}
