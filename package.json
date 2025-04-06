@@ -1,9 +1,8 @@
 {
-  "name": "code-runner",
+  "name": "code-runner-166",
   "version": "1.0.0",
   "dependencies": {
-    "vm2": "^3.9.5",
-    "@vercel/node": "^4.2.4"
+    "vm2": "^3.9.5"
   },
   "engines": {
     "node": ">=18.x"
