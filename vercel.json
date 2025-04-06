@@ -1,11 +1,23 @@
 {
-  "name": "code-runner-162",
-  "version": "1.0.0",
-  "dependencies": {
-    "vm2": "^3.9.5",
-    "@vercel/node": "latest"
-  },
-  "engines": {
-    "node": ">=18.x"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/run.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/run",
+      "dest": "/api/run"
+    },
+    {
+      "src": "/(.*)", 
+      "dest": "/public/$1"
+    }
+  ]
 }
